@@ -1,13 +1,13 @@
 <template>
 <div class="taxi-price-wraper border-top-1px" >
-  <loading v-if="!position.end || !position.start"></loading>
-  <div class="taxi-price" v-if=" position.end && position.start ">
+  <loading v-if="!address.end || !address.start"></loading>
+  <div class="taxi-price" v-if=" address.end && address.start ">
         <div class="taxi-normal-price taxi-price-item">
           <div class="taxi-price-title">计价器计价</div>
         </div>
         <div class="taxi-estimate-price taxi-price-item" style="display: block;">
           <div class="taxi-price-title">约
-            <span>23</span>元</div>
+            <span>{{parseInt(Math.random() * 100)}}</span>元</div>
         </div>
   </div>
 </div>
@@ -26,7 +26,8 @@ import {mapState} from 'vuex'
       },
       computed: {
           ...mapState([
-              'position'
+              'position',
+              'address'
           ])
       }
   }

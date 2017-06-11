@@ -117,6 +117,8 @@ export default {
     state.position = position
     // state.position.address =position.address
     // state.position.city = position.city
+
+    
     // state.position.address = result.aois[0].name
     // state.city = result.addressComponent.city
     // console.log(state.position)
