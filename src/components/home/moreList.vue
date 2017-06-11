@@ -6,7 +6,7 @@
       <li class="list-item border-right-1px" v-for="item in navList">
         <span class="list-link">
           <img :src="item.iconUrl" width="44px" height="24px" alt="">
-          <p class="text"> {{item.type}} </p>
+          <p class="text"> {{item.name}} </p>
         </span>
       </li>
     </ul>

@@ -4,15 +4,15 @@
       <div v-show="usersidebar" class="sidebar-container">
         <div class="user">
           <icon name="user"></icon>
-          <span>157*****839</span>
+          <span>{{telephone}}</span>
         </div>
         <menu-list></menu-list>
         <other-service></other-service>
       </div>
     </transition>
-    <!--<transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">-->
+  
     <common-mask  @click.native="close_usersidebar"></common-mask>
-    <!--</transition>-->
+
   </div>
 </template>
 <script>
@@ -24,7 +24,8 @@ import { mapState, mapActions } from 'vuex'
 export default {
   computed: {
     ...mapState([
-      'usersidebar'
+      'usersidebar',
+      'telephone'
     ])
   },
   components: {
@@ -37,6 +38,9 @@ export default {
     ...mapActions([
       'close_usersidebar'
     ])
+  },
+  mounted () {
+    // console.log(this.telephone)
   }
 }
 </script>

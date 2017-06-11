@@ -1,5 +1,5 @@
 <template>
-  <div class="autocompleteList">
+  <div class="autocompleteList" v-show="exist">
     <template v-for="(item, index) in autocompleteList">
       <!--<mt-cell-swipe :titel="item.name" :value="item.name"> {{item.name}} </mt-cell-swipe>-->
       <a class="mint-cell mint-cell-swipe" @click="choose_address(index)">
@@ -29,6 +29,11 @@
 <script>
 import { mapState } from 'vuex'
 export default {
+  data () {
+    return {
+      exist: true
+    }
+  },
   computed: {
     ...mapState([
       'autocompleteList'
@@ -37,7 +42,11 @@ export default {
   methods: {
     choose_address(index){
       this.$store.dispatch('choose_address', index)
+      this.$store.dispatch('close_autocompletelist')
+        this.$router.push({path:'/'})
     }
+  },
+  mounted () {
   }
 }
 </script>

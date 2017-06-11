@@ -10,7 +10,6 @@
 </template>
 <script>
 import {mapActions,mapState} from 'vuex'
-// import loginLocation from '@/components/login-location.vue'
 import location from '@/components/location.vue'
 import checkTelephone from '@/components/checkTelephone.vue'
 import messageConfirm from '@/components/messageConfirm.vue'

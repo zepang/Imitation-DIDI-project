@@ -5,8 +5,8 @@
     <router-view></router-view>
     <v-mask v-show="ismask" :show="ismask"></v-mask>
     <!--<v-footer></v-footer>-->
-    <suggest v-if="suggest"></suggest>
-
+    <!--<suggest v-if="suggest"></suggest>-->
+  
   </div>
 </template>
 
@@ -15,7 +15,7 @@ import vHeader from './header.vue'
 import vMask from '../Mask.vue'
 import suggest from '../suggest/suggest.vue'
 import userSider from '../userSidebar/sideBar.vue'
-import {mapActions, mapState} from 'vuex'
+import { mapActions, mapState } from 'vuex'
 
 // import vFooter from '@/components/footer.vue'
 // import mapState from 'vuex'
@@ -25,18 +25,23 @@ export default {
       'usersidebar',
       'checkTelephone',
       'ismask',
-      'suggest'
+      'suggest',
+      'hasLocation'
     ])
   },
-  created () {
+  created() {
     // if(this.$router.path)
     // components.log(this.$router.path)
     // this.$router.replace({path:'home/taxi'})
   },
   methods: {
+    // firstLocation() {
+    //   if (!this.hasLocation) {
+        
+    //   }
+    // },
     ...mapActions([
-      'get_telephone',
-      'get_location'
+      'get_telephone'
     ])
   },
   components: {
@@ -45,9 +50,9 @@ export default {
     suggest,
     userSider
   },
-  mounted () {
+  mounted() {
     this.get_telephone(),
-    this.get_location()
+    this.$store.dispatch('getCurrentPosition', 'AMap')
   }
 }
 </script>

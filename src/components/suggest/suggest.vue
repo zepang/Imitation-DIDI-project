@@ -1,4 +1,5 @@
 <template>
+<transition enter-active-class="animated fadeInRight">
     <div class="suggest">
       <suggest-head></suggest-head>
       <autocomplete-list></autocomplete-list>
@@ -7,12 +8,13 @@
       </div>  
       <suggest-list></suggest-list>
     </div>
+</transition>
 </template>
 <script>
 import {mapState} from 'vuex'
 import suggestHead from '@/components/suggest/suggestHead.vue'
 import suggestList from '@/components/suggest/suggestList.vue'
-import amap from '@/components/amap.vue'
+import amap from '@/components/public/amap.vue'
 import autocompleteList from '@/components/suggest/autocompleteList.vue'
 
 export default {
@@ -35,6 +37,7 @@ export default {
   position: relative;
   z-index: 999;
   height: 100%;
+  animation-duration: .5s;
 }
 .amap{
   height: 94%;

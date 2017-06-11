@@ -21,7 +21,7 @@
             </div>
         </div>
         <div class="cancel-wrapper">
-            <span class="text border-left-1px" @click="close_suggest">取消</span>
+            <span class="text border-left-1px" @click="back_home">取消</span>
         </div>
     </div>
 </template>
@@ -43,13 +43,17 @@ export default {
     },
     watch:{
         suggestInputValue(newVal,odlVal){
-            console.log(newVal)
+            // console.log(newVal)
             if(newVal != odlVal) {
                 this.$store.dispatch('autocomplete', newVal)
             }
         }
     },
     methods: {
+        back_home(){
+            this.$router.go(-1)
+            this.position.end = '您要哪儿'
+        },
         ...mapActions([
             'show_suggest',
             'close_suggest',

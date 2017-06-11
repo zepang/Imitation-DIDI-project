@@ -7,12 +7,9 @@
                 <input type="tel" class="input-val phone-hook needsfocus" placeholder="请输入手机号码" maxlength="11" v-model="telephone">
                 <div class="phone-suggest suggest-hook" style="display: none;"></div>
             </div>
-            <div class="pwd-wrapper border-1px pwd-wrapper-hook">
-                <input type="password" class="input-val pwd-input pwd-hook needsfocus" maxlength="16" placeholder="">
-                <div class="eye eye-close eye-hook"></div>
-            </div>
             <div class="desc desc-hook"></div>
-            <div class="login-btn btn-hook" :class="isTelephoneVal? 'bg-active': 'bg-base'" @click="toMessageConfirm">下一步</div>
+            <div class="login-btn btn-hook" v-show="!eventActive" :class="isTelephoneVal? 'bg-active': 'bg-base'">下一步</div>
+            <div class="login-btn btn-hook" v-show="eventActive" :class="isTelephoneVal? 'bg-active': 'bg-base'" @click="toMessageConfirm">下一步</div>
         </div>
         <div class="close" @click="close_mask">
             <span></span>
@@ -24,13 +21,18 @@ import { mapActions, mapState } from 'vuex'
 export default {
     data () {
         return {
-            telephone:''
+            telephone:'',
+            eventActive: false
         }
     }, 
     watch: {
       telephone (value) {
           if(value) {
+            this.eventActive = true
             this.$store.dispatch('check_telephone',value)
+            console.log(value)
+          }else{
+            this.eventActive = false
           }
       }  
     },
@@ -122,7 +124,6 @@ export default {
     border-bottom-right-radius: 2px;
     text-align: center;
     font-size: 16px;
-    /*background-color: #ccc;*/
     color: #fff;
 }
 .bg-active {

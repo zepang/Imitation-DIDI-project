@@ -4,10 +4,10 @@
     <div class="taxi-location border-top-1px">
       <div class="location">
         <div class="location-item location-from" @click="show_suggest('getOn')" >
-          <p class="location-field border-bottom-1px">{{position.start || position.address || '您在哪上车'}}</p>
+          <p class="location-field border-bottom-1px">{{address.start || position.address || '你要去哪儿'}}</p>
         </div>
         <div class="location-item location-to location-item-inputed" @click="show_suggest('getOff')">
-          <p class="location-field">{{position.end}}</p>
+          <p class="location-field">{{address.end || '您去哪儿'}}</p>
         </div>
       </div>
     </div>
@@ -16,7 +16,6 @@
       <icon name="clock-o" scale=0.8></icon>
       <span>现在出发</span>
     </div>
-
     <compute-price></compute-price>
   </div>
 </template>
@@ -28,17 +27,17 @@ import {mapActions,mapState,mapGetters} from 'vuex'
 export default {
   computed: {
     ...mapState([
-      'position'
+      'position',
+      'address'
     ])
   },
   watch: {
-    position(oldVal,newVal) {
-        console.log( newVal !=oldVal && newVal)
-    }
+    position(oldVal,newVal) {}
   },
   methods: {
       show_suggest(key) {
           this.$store.dispatch('show_suggest',key)
+          this.$router.push({path: '/suggest'})
       }
   },
   components:{

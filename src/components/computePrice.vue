@@ -1,24 +1,33 @@
 <template>
 <div class="taxi-price-wraper border-top-1px" >
-  <loading></loading>
-  <div class="taxi-price">
+  <loading v-if="!position.end || !position.start"></loading>
+  <div class="taxi-price" v-if=" position.end && position.start ">
         <div class="taxi-normal-price taxi-price-item">
           <div class="taxi-price-title">计价器计价</div>
-          <!---->
         </div>
         <div class="taxi-estimate-price taxi-price-item" style="display: block;">
           <div class="taxi-price-title">约
-            <span></span>元</div>
-          <!---->
+            <span>23</span>元</div>
         </div>
   </div>
 </div>
 </template>
 <script>
 import loading from '@/components/loading'
+import {mapState} from 'vuex'
   export default {
+      data () {
+          return {
+              computePrice:false 
+          }
+      },
       components:{
           loading
+      },
+      computed: {
+          ...mapState([
+              'position'
+          ])
       }
   }
 </script>

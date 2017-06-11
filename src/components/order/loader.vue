@@ -1,4 +1,5 @@
 <template>
+<transition enter-active-class="animated slideInUp"  leave-class="animated fadeOutRight">
   <div class="call-wrapper">
     <div class="call-tips">
       <p class="title">正在为您叫车</p>
@@ -17,7 +18,7 @@
         </div>
         <div class="loader-tip">
           <p>已通知出租车</p>
-          <span class="notice-car">3</span>
+          <span class="notice-car">{{taxiCount}}</span>
           辆
         </div>
       </div>
@@ -28,21 +29,22 @@
           <span>取消订单</span>
         </button>
         <button class="cancle">
-          <span>取消订单</span>
+          <span>打标来接</span>
         </button>
         <button class="cancle">
-          <span>取消订单</span>
+          <span>调度费</span>
         </button>
       </div>
     </div>
   </div>
+</transition>
 </template>
 <script>
 import {mapState} from 'vuex'
   export default{
     data () {
       return{
-        self: this
+        taxiCount: 0
       }
     },
     computed: {
@@ -58,11 +60,10 @@ import {mapState} from 'vuex'
     },
     watch: {
       tips (value) {
+        if(value % 2 == 0){
+          this.taxiCount++
+        }
         if(value < 20){
-        //   console.log(value)
-        //   console.log(this)
-        //   console.log(this.$router)
-        //   console.log(self)
           this.$router.push({path:'/order/accepte'})
         }
       }
@@ -77,6 +78,7 @@ import {mapState} from 'vuex'
 .call-wrapper {
   width: 100%;
   padding-top: 150px;
+  animation-duration: .5s;
 }
 .call-tips {
   height: 60px;

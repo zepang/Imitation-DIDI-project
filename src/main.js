@@ -15,7 +15,7 @@ Vue.use(VueAxios,axios)
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
-new Vue({
+let vm = new Vue({
   el: '#app',
   mint,
   router,
@@ -23,3 +23,6 @@ new Vue({
   template: '<App/>',
   components: { App }
 })
+console.log(vm)
+
+export default vm

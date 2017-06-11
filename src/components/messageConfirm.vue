@@ -12,16 +12,17 @@
         <div class="btn btn-hook active" @click="time" v-show="!timeCount" >重新发送</div>
       </div>
       <div class="user-input user-input-hook">
-        <!--<span :class="{'active': item.isActive}" v-for="(item,index) in Verification " @click="active_input(index)" >{{Verification[index].VerificationNum}}</span>-->
-        <span :class="{'active': item.isActive}" v-for="(item,index) in Verification " @click="active_input(index)" >{{VerificationNumArray[index]}}</span>
-        <!--<span></span>
-        <span></span>
-        <span></span>-->
+        <span ></span>
+        <span ></span>
+        <span ></span>
+        <span ></span>
+        <input type="text" v-model="confirmValue" maxlength="4">
+
       </div>
       <div class="desc desc-hook">输入验证码表示同意《法律声明及隐私政策》</div>
       <div class="hidden-input">
         <input class="hidden-input-hook" type="tel" maxlength="4"> </div>
-    </div>
+      </div>
     <div class="close" @click="close_mask">
       <span></span>
     </div>
@@ -32,7 +33,7 @@ import { mapActions, mapState } from 'vuex'
 export default {
   data () {
     return {
-      
+      confirmValue: ''
     }
   },
   computed: {
@@ -46,43 +47,33 @@ export default {
     ])
   },
   watch: {
+    confirmValue(value) {
+      // console.log(value)
+      if(value.length == 4) {
+        console.log('ok')
+        this.close_mask()
+        this.$store.dispatch('save_telephone')
+      }
+    },
     tipsContent(value) {
-      console.log(value)
+      // console.log(value)
     },
     VerificationNumArray(value) {
       console.log(value)
-
-      if(this.VerificationNumArray.length === 4) {
-        //执行保存 手机至本地 && 路由跳转
-        console.log(44)
-        this.$store.dispatch('save_telephone')
-        this.close_mask()
-      }
     }
   },
   methods: {
     time(){
-      console.log('time')
       this.$store.dispatch('time',60)
     },
-    active_input(index){
-    return this.$store.dispatch('active_input',index)
-    },
     ...mapActions([
-      'close_mask',
-      'key_down_input',
-      'remove_key_down_input'
+      'close_mask'
     ]),  
   },
-  // 挂载添加倒计时和键盘监听
   mounted () {
-    this.time(),
-    this.key_down_input()
+    this.time()
   },
-  // 销毁前移除事件
   beforeDestroy () {
-    this.remove_key_down_input()
-    // console.log('des')
   }
 
 }
@@ -179,8 +170,19 @@ export default {
   text-align: center;
   font-size: 26px;
   color: #333;
+  overflow: hidden;
 }
-
+.pop-slogin .user-input input{
+  position: absolute;
+  z-index: 0;
+  width: 280px;
+  height: 50px;
+  left: 0;
+  left: 10px;
+  letter-spacing: 39px;
+  font-size: 30px;
+  text-indent: 13.5px;
+}
 
 .pop-slogin .desc {
   height: 10px;

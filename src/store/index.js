@@ -7,19 +7,6 @@ import actions from './actions'
 
 Vue.use(Vuex)
 
-// const actions = {
-//   maskOnOrOff({commit}){
-    
-//   }
-// }
-// const mutations = {
-//   maskchange(state) {
-    
-//   },
-//   change(state,index) {
-     
-//   }
-// }
 export default new Vuex.Store({
   state,
   getters,

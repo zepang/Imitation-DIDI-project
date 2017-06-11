@@ -1,6 +1,5 @@
 <template>
   <div class="mf-part-loading" style="display: blcok;">
-    <!---->
     <div class="mf-part-loading-bar" style="display: block;">
       <i class="mf-part-loading-first"></i>
       <i class="mf-part-loading-second"></i>
@@ -10,7 +9,6 @@
   </div>
 </template>
 <script>
-
 </script>
 <style>
 .mf-part-loading {

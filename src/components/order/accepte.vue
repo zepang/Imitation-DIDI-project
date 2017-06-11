@@ -7,7 +7,7 @@
             <img src="//taxife.didistatic.com/static/fe/default_driver_avator_v5.png">
           </div>
           <div class="driver-card-call">
-            <a href="tel:13870909818" class="driver-card-phone">
+            <a href="tel:138*****818" class="driver-card-phone">
               <div>
                 <Icon name="phone" scale=1.2></Icon>
               </div>
@@ -19,38 +19,11 @@
               <span class="driver-card-name">杜师傅</span>
             </div>
             <div class="driver-card-licence-special">
-              <div class="driver-card-licence">赣A8X698</div>
+              <div class="driver-card-licence">赣A8X***</div>
             </div>
-            <div class="driver-card-cartype">南昌大众交通有限责任公司</div>
+            <div class="driver-card-cartype">****交通有限责任公司</div>
           </div>
         </div>
-  
-        <!--<div class="driver-card-friend border-top-1px driver-card-no-friend" style="display: none;">
-                    <div class="driver-card-friend-avatar" style="display: none;">
-                      <div></div>
-                    </div>
-                    <div class="driver-card-friend-loading" style="display: none;">
-                      <span class="driver-card-loading-icon"></span>
-                      <span>寻找拼友</span>
-                    </div>
-                  </div>-->
-        <!--<div class="mf-layer" style="display: none;">
-                    <div class="mf-wrap">
-                      <div class="mf-dialog">
-                        <span class="mf-dialog-close" style="display: none;">
-                          <i class="mfic-narrow-cancel"></i>
-                        </span>
-                        <div class="alert">
-                          <p class="mf-dialog-icon">
-                            <i class="mfic-gantanhao"></i>
-                          </p>
-                          <div class="mf-dialog-tip">
-                            <p></p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>-->
       </div>
     </div>
     <div class="amap">
@@ -58,36 +31,20 @@
     </div>
     <div class="mf-bottom-bar">
       <div class="mf-bottombar-mod">
-        <div class="mf-bottombar-hd hidden">
-          <ul class="mf-bottombar-ex" style="display:none">
-            <li data-ex="1" data-index="0" class="border-right-1px">
-              <button type="button" class="mf-btn">
-                <span>支付车费</span>
-              </button>
-            </li>
-            <li data-ex="1" data-index="1" class="border-right-1px">
-              <button type="button" class="mf-btn">
-                <span>我已现金支付</span>
-              </button>
-              <div class="mf-bottombar-down">
-                <i class="mfic-pulldown mf-bottombar-pulldown"></i>
-              </div>
-            </li>
-          </ul>
-        </div>
+        
         <ul class="mf-bottombar-bd">
-          <li data-index="0" class="border-right-1px" @click="cancle_order">
-            <button type="button" class="mf-btn">
+          <li data-index="0" @click="cancle_order">
+            <button type="button" >
               <span>取消订单</span>
             </button>
           </li>
-          <li data-index="1" class="border-right-1px">
-            <button type="button" class="mf-btn">
+          <li data-index="1" >
+            <button type="button" @click="web_error">
               <span>需要帮助</span>
             </button>
           </li>
-          <li class="border-right-1px more-button">
-            <button type="button" class="mf-btn">
+          <li class="">
+            <button type="" >
               <div class="icon-ellipsis-h">
                 <icon name="ellipsis-h"></icon>
               </div>
@@ -100,11 +57,15 @@
 </template>
 <script>
 import Icon from 'vue-awesome/components/Icon'
-import amap from '@/components/amap.vue'
+import amap from '@/components/public/amap.vue'
+import {mapActions} from "vuex"
 export default {
   methods: {
     cancle_order() {
       this.$router.push({path:'/'})
+    },
+    web_error() {
+      this.$router.push({path: '/webError'})
     }
   },
   components: {
@@ -117,7 +78,9 @@ export default {
 .taxi-wait-content {
   height: 100%;
 }
-
+button{
+  outline: none;
+}
 .amap {
   height: 800px;
   margin-top: -102px;
@@ -209,14 +172,13 @@ export default {
 .mf-bottom-bar {
   position: absolute;
   z-index: 999;
-  bottom: 20px;
+  top:110px;
   width: 100%;
 }
 
 .mf-bottombar-mod {
   margin: 0 auto;
   width: 90%;
-
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
@@ -224,7 +186,7 @@ export default {
 }
 
 .mf-bottombar-bd {
-    background: #fff;
+  background: #fff;
   display: flex;
   justify-content: space-around;
 }

@@ -9,7 +9,6 @@
               <template v-for="(city,j) in item.cityName">
                 <mt-cell :title="city" @click.native="choose_city(i,j)" ></mt-cell>
               </template>
-
             </mt-index-section>
           </template>
         </mt-index-list>
@@ -38,14 +37,13 @@ export default {
   },
   methods: {
     choose_city:(i,j) => {
-      // console.log(i,j)
       var index = {
         i,
         j
       }
       console.log(this)
-      // console.log(index)
       self.$store.dispatch('choose_city_name', index)
+
     }
   },
   created () {

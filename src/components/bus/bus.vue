@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import search from '@/components/search.vue'
+import search from './search.vue'
 import busItem from './busItem.vue'
   export default {
     components: {

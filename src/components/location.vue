@@ -2,25 +2,19 @@
   <div class="mf-wrap">
     <div class="mf-dialog">
       <span class="mf-dialog-close" style="display: none;">
-        <!--<i class="mfic-narrow-cancel"></i>-->
         <icon name="exclamation-circle"></icon>
       </span>
       <div class="confirm">
         <p class="mf-dialog-icon">
-          <!--<i class="mfic-gantanhao"></i>-->
           <icon name="exclamation-circle" scale=2 ></icon>
         </p>
-        <!---->
         <div class="mf-dialog-tip">
           <p>滴滴未获取到您的定位权限，请到设置中开启</p>
-          <!---->
         </div>
-        <!---->
         <div class="mf-dialog-btns border-right-1px">
-          <a href="javascript:;" class="border-top-1px mf-dialog-btn-active" @click="show_suggest">输入上车点</a>
-          <a href="javascript:;" class="border-top-1px" @click="switch_mask">我知道了</a>
+          <a href="javascript:;" class="border-top-1px mf-dialog-btn-active" @click="toSuggest">输入上车点</a>
+          <a href="javascript:;" class="border-top-1px" @click="close_location_error">我知道了</a>
         </div>
-        <!---->
       </div>
     </div>
   </div>
@@ -29,10 +23,20 @@
 import Icon from 'vue-awesome/components/Icon'
 import {mapActions,mapState} from 'vuex'
 export default {
+    computed: {
+        ...mapState([
+            'ismask',
+            'location'
+        ])
+    },
     methods: {
+        toSuggest(){
+            this.$router.push({path:'/suggest'})
+        },
     ...mapActions([
       'show_suggest',
-      'switch_mask'
+      'switch_mask',
+      'close_location_error'
     ])
   },
   components: {

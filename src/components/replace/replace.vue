@@ -5,8 +5,8 @@
 </div>
 </template>
 <script>
-  import vForm from '@/components/Form.vue'
-  import vButton from '@/components/Button.vue'
+  import vForm from '@/components/public/Form.vue'
+  import vButton from '@/components/public/Button.vue'
   
   export default {
     components: {

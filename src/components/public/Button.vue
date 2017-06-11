@@ -1,7 +1,6 @@
 <template>
   <div class="taxi-send-btn">
     <div class="mf-part-loading" style="display: none;">
-      <!---->
       <div class="mf-part-loading-bar" style="transform: scale(1); display: none;">
         <i class="mf-part-loading-first"></i>
         <i class="mf-part-loading-second"></i>
@@ -44,7 +43,6 @@ export default{
     outline: none;
     font-size: 16px;
     color: #fff;
-    /*background: #4a4c5b;*/
     border: none;
     box-sizing: border-box;
     -webkit-tap-highlight-color: transparent;

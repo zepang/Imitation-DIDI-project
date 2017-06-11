@@ -5,31 +5,31 @@
         <div class="travel">
           <router-link to="/user/travel">
             <Icon name="address-card"></Icon>
-            <span class="text">travel</span>
+            <span class="text">行程</span>
           </router-link>
         </div>
       </li>
       <li>
         <div class="travel">
           <router-link to="/user/wallet">
-            <Icon name="address-card"></Icon>
-            <span class="text">wallet</span>
+            <Icon name="money"></Icon>
+            <span class="text">钱包</span>
           </router-link>
         </div>
       </li>
       <li>
         <div class="travel">
           <router-link to="/user/setting">
-            <Icon name="address-card"></Icon>
-            <span class="text">setting</span>
+            <Icon name="cog"></Icon>
+            <span class="text">设置</span>
           </router-link>
         </div>
       </li>
       <li>
         <div class="travel">
           <router-link to="/user/feedback">
-            <Icon name="address-card"></Icon>
-            <span class="text">feedback</span>
+            <Icon name="pencil"></Icon>
+            <span class="text">反馈建议</span>
           </router-link>
         </div>
       </li>
