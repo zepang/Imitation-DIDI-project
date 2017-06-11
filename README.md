@@ -102,4 +102,4 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
 
   此项目我将一直在GitHub上进行更新，欢迎有兴趣的小伙伴一起学习，也欢迎各位大牛指出项目的缺点与不足。
  
- 最后插播一个小广告：大四应届生，求职中，希望各位大佬给个机会。这是[我的简历]()
+ 最后插播一个小广告：大四应届生，求职中，希望各位大佬给个机会。这是[我的简历](https://uncleze2017.github.io/vue-didi-demo/about.html)
