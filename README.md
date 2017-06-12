@@ -2,6 +2,7 @@
 最近，掘金上出现很多小伙伴的vue项目，趁着这股热潮我也用vue撸了一个滴滴出行的项目。
 
 ## 效果预览
+![](https://ooo.0o0.ooo/2017/06/11/593ce65f51ba3.gif)
 > 在线预览：[demo](https://uncleze2017.github.io/vue-didi-demo/index.html)
 
 > 项目地址：[github](https://github.com/uncleze2017/Imitation-DIDI-project)
